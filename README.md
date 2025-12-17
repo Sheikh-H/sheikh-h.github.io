@@ -52,7 +52,8 @@ To view the project locally:
 
 ```bash
 git clone https://github.com/Sheikh-H/sheikh-h.github.io.git
-cd My-Portfolio
+cd sheikh-h.github.io
+
 ```
 ---
 
