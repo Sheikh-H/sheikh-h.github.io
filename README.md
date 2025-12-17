@@ -9,7 +9,7 @@ This portfolio is a live reflection of how I combine creativity, technical learn
 ---
 
 ## 🌐 Live Demo
-[🔗 View My Portfolio](https://sheikh-h.github.io/My-Portfolio/)  
+[🔗 View My Portfolio](https://sheikh-h.github.io/)
 > ⚠️ Best experienced on **desktop or laptop** (mobile version still under development).
 
 ---
