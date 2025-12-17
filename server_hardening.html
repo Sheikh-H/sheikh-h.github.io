@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learning the basics of server hardening and configuration practices that help improve security and reduce vulnerabilities in system setups."
+    />
+
+    <title>Server Hardening | Sheikh's Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Media/Images/Favicon/Sheikh_Favicon_1.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Doto:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div
+        class="header_logo"
+        id="header_logo_div"
+        onclick="location.href='./index.html'"
+      >
+        <img
+          src="./Media/Images/Logo/Sheikh_Logo_2.png"
+          alt="Sheikh Hussain's Portfolio Logo"
+        />
+        <h2>Sheikh Hussain</h2>
+      </div>
+      <div class="mobile_menu_button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="desktop-nav">
+        <nav>
+          <ul>
+            <li><a href="./index.html#home">Home</a></li>
+            <li><a href="./index.html#about">About Me</a></li>
+            <li><a href="./index.html#projects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <nav>
+        <div class="mobile_menu">
+          <ul>
+            <li><a href="./index.html#mhome">Home</a></li>
+            <li><a href="./index.html#mabout">About Me</a></li>
+            <li><a href="./index.html#mprojects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- ^ The above is the header, needs refactoring -->
+      <section>
+        <div class="server-hardening-title">
+          <h1>Server Hardening</h1>
+        </div>
+        <p>
+          We all own devices that can access the internet, we browse all day, we
+          download files, and click on links to visit sites. How do we know that
+          there isn't a connection being made to your device or server without
+          authorisation?<br /><br />
+          This is where we learn to protect our devices beyond just downloading
+          an antivirus software to do the work. If we learn to configure our
+          devices in such a manner that is restrictive, we begin to reduce the
+          attack surface and strengthen our security.<br /><br />
+        </p>
+      </section>
+      <section class="server_hardening_main">
+        <div>
+          <h2>Firewall Configuration</h2>
+          <p>
+            Setting up your firewall on any platform is relatively easy, but
+            it's the functions that a cybersecurity specialist will mostly focus
+            on. The reason for this is that firewalls are programs that have
+            many features, and by default, all they do is keep a log of incoming
+            and outgoing traffic to a server or device. <br /><br />
+
+            However, they need to be instructed on what to block and what not to
+            block as online threats become more advanced. As we enter into an
+            era of using artificial intelligence for decision-making processes,
+            we can begin to visualise how well a firewall program will perform
+            using this type of technology, coinciding with modern anti-virus
+            software.
+            <br /><br />
+
+            Though this is a huge advantage to security analysts, we still need
+            to configure our devices in such a manner that helps identify
+            threats before they occur and even after an incident. We need to be
+            able to identify
+            <i>
+              where a threat comes from, how it happened and what to do next
+              time.</i
+            ><br /><br />
+            This basic principle allows security analysts to modify a firewall
+            to anticipate attacks and prevent them, while also keeping a record
+            of all incoming and outgoing traffic. I could go on for a long while
+            explaining all the features, types of firewalls, and configuration
+            methods, but what would be useful is if I show you some examples of
+            what it can do or types of configurations.
+          </p>
+          <strong>Using IP Tables in Linux:</strong>
+          <pre><code>
+            <span class="comment">/* Example Code */</span>
+            <span class='comment'># Clear old rules</span>
+            sudo iptables -F
+
+            <span class='comment'># Block everything by default</span>
+            sudo iptables -P INPUT DROP
+            sudo iptables -P FORWARD DROP
+            sudo iptables -P OUTPUT ACCEPT
+
+            <span class='comment'># Allow local and active connections</span>
+            sudo iptables -A INPUT -i lo -j ACCEPT
+            sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+            <span class='comment'># Allow SSH (remote access)</span>
+            sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+            <span class='comment'># Allow web traffic</span>
+            sudo iptables -A INPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
+
+            <span class='comment'># Save the configuration</span>
+            sudo iptables-save | sudo tee /etc/iptables/rules.v4
+          </code></pre>
+          <strong>Windows Firewall</strong><br /><br />
+          1. Open the Firewall
+          <pre><code>
+          Click the Start Menu, type “Windows Defender Firewall”, and open it.
+          </code></pre>
+          2. Turn It On
+          <pre><code>
+          In the left panel, click “Turn Windows Defender Firewall on or off.”
+
+          Make sure it’s ON for both Private and Public networks.
+          </code></pre>
+          3. Block Everything by Default
+          <pre><code>
+          Go back to the main window and click “Advanced settings.”
+
+          In the pop-up, click “Windows Defender Firewall Properties.”
+
+          Under each tab (Domain, Private, Public), set Inbound connections to Block and Outbound connections to Allow.
+          </code></pre>
+          4. Allow Only What You Need
+          <pre><code>
+          In the left panel, click “Inbound Rules.”
+
+          On the right, choose “New Rule.”
+
+          Select Port, then Next, choose TCP, and type 80, 443 (for websites).
+
+          Click Next → Allow the connection → Finish.
+
+          Repeat for port 22 if you use SSH (for remote access).
+          </code></pre>
+          5. Turn on Logging
+          <pre><code>
+          Still in “Advanced settings,” click “Monitoring → Firewall”.
+
+          Open Properties → Logging tab.
+
+          Turn on “Log dropped packets.”
+
+          This helps you see what the firewall is blocking.
+          </code></pre>
+          That’s it — your Windows firewall will now allow only web and SSH
+          traffic and block everything else.<br /><br />
+
+          <strong>Mac OS</strong><br /><br />
+
+          <p>1. Open Firewall Settings</p>
+          <pre><code>
+            Click the Apple menu → System Settings → Network → Firewall.
+            </code></pre>
+          <p>2. Turn It On</p>
+          <pre><code>
+            Switch the Firewall toggle to ON.
+            </code></pre>
+          <p>3. Enable Stealth Mode</p>
+          <pre><code>
+            Click “Options…” (or “Options & Details”).
+
+            Turn on “Stealth Mode.”
+            (This hides your computer from unknown network requests.)
+            </code></pre>
+          <p>4. Allow Only Needed Apps</p>
+          <pre><code>
+            In the same window, review the list of apps.
+
+            Remove or deny access to apps you don’t need network access for.
+
+            Make sure only your web server, browser, or other necessary tools are allowed.
+            </code></pre>
+          <p>5. Advanced Users (Optional)</p>
+          <pre><code>
+            If you want more control, you can use pf (Packet Filter), macOS’s advanced firewall — but for most users, the built-in firewall is enough and much safer to manage.
+            </code></pre>
+          <p>
+            These are some basic configurations and you may want to consult a
+            cybersecurity professional to help you navigate around some commands
+            and instructions.
+          </p>
+        </div>
+        <div>
+          <h2>Apache Hardening</h2>
+          <p>
+            Running a web server is straightforward, but keeping it secure is
+            where the real challenge lies. Apache configuration is key to
+            securing and maintaining your web server. Fine-tuning and adjusting
+            its settings allows you to restrict network behaviour and protect
+            your server from various types of attacks.<br /><br />
+            Hardening Apache is a smart decision, and it’s not overly
+            complicated to implement. A security analyst can guide you on what
+            to look out for and how to safeguard your server effectively.<br /><br />
+            It’s important to note that while Apache plays a critical role in
+            server security, it is not responsible for input sanitisation. For
+            example, consider SQL Injection attacks, where a user might attempt
+            to log in using commands like <b>'OR 1=1--'</b>. These attacks
+            target the application itself, not the server. However, Apache can
+            help mitigate such attacks to some extent when paired with modules
+            like <i>mod_security</i>, which can filter and block malicious
+            requests before they reach your application.<br /><br />
+            As with all areas of cybersecurity, the topic is vast and goes far
+            beyond input sanitisation. While some basic checks can be performed
+            at the HTML or application level, hardening Apache allows you to
+            focus on securing the server itself, reducing the risk of exploits
+            and providing a safer environment for your web applications.<br /><br />
+            Remember, Apache’s primary role is to deliver your website across a
+            network, and its security features are meant to protect the server
+            and its communication—not replace proper application-level
+            defences.<br /><br />
+          </p>
+          <p>
+            1. Keep Apache Updated Always run the latest version to fix security
+            issues:
+          </p>
+          <pre><code>
+          sudo apt update && sudo apt upgrade
+          </code></pre>
+          <p>
+            2. Hide Server Info Stop Apache from showing its version and OS
+            details: Edit security.conf and add:
+          </p>
+          <pre><code>
+          ServerSignature Off
+          ServerTokens Prod
+          </code></pre>
+          <p>
+            3. Use HTTPS (SSL/TLS) Encrypt traffic with a free Let’s Encrypt
+            certificate:
+          </p>
+          <pre><code>
+          sudo apt install certbot python3-certbot-apache
+          sudo certbot --apache
+          </code></pre>
+          <p>
+            4. Disable Directory Listing Prevent visitors from browsing your
+            folders: Add this to your site config:
+          </p>
+          <pre><code>
+          Options -Indexes
+          </code></pre>
+          <p>
+            5. Add Basic Security Headers Protect against common web attacks:
+          </p>
+          <pre><code>
+          Header always set X-Frame-Options "SAMEORIGIN"
+          Header always set X-Content-Type-Options "nosniff"
+          Header always set X-XSS-Protection "1; mode=block"
+          </code></pre>
+          <p>
+            ✅ Result: Your Apache server is encrypted, hides sensitive info,
+            and resists common attacks — all with just a few simple commands.
+          </p>
+        </div>
+      </section>
+      <section class="mobile-server-hardening">
+        <div class="server-hardening-topics">
+          <div class="server-hardening-topic">
+            <a href="./firewall_configurations.html">
+              <img
+                src="./Media/Images/Icons/angle-left-icon.png"
+                alt="go to firewall configuration"
+              />
+              <h2>Firewall Configuration</h2></a
+            >
+          </div>
+          <div class="server-hardening-topic">
+            <a href="./apache-configuration.html">
+              <h2>Apache Hardening (Servers)</h2>
+              <img
+                src="./Media/Images/Icons/angle-right-icon.png"
+                alt="go to apache hardening"
+            /></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- The below is the footer v -->
+    <footer>
+      <div class="footer_top">
+        <div class="footer_identity">
+          <img
+            src="./Media/Images/Logo/Sheikh_Logo_4.png"
+            alt="Sheikh's Logo"
+            class="footer_logo"
+          />
+          <div class="footer_text">
+            <h3>Sheikh Hussain</h3>
+            <div class="social_icons">
+              <a
+                href="https://www.linkedin.com/in/sheikh-hussain/"
+                target="_blank"
+              >
+                <img
+                  src="./Media/Images/Icons/Sheikh's_LinkedIn_Profile.png"
+                  alt="Connect on LinkedIn Icon"
+                />
+              </a>
+              <a href="mailto:sheikh.hussain1155@gmail.com" target="_blank">
+                <img
+                  src="./Media/Images/Icons/Send_A_Message_To_Sheikh.png"
+                  alt="Message Sheikh Icon"
+                />
+              </a>
+              <a href="https://github.com/Sheikh-H" target="_blank">
+                <img
+                  src="./Media/Images/Icons/github-white-icon.png"
+                  alt="View GitHub Profile Icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div>
+          <table class="sitemap-table">
+            <tr>
+              <td>
+                <p class="sitemap-heading"><strong>Site Map</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="./website_builds.html">Website Builds</a></td>
+
+              <td><a href="index.html#home">Home</a></td>
+            </tr>
+            <tr>
+              <td><a href="./cybersecurity.html">Cybersecurity</a></td>
+
+              <td><a href="index.html#about">About</a></td>
+            </tr>
+            <tr>
+              <td><a href="./database_builds.html">Database Builds</a></td>
+
+              <td><a href="index.html#projects">Projects</a></td>
+            </tr>
+            <tr>
+              <td><a href="./python_projects.html">Python Projects</a></td>
+
+              <td><a href="index.html#contact">Contact Me</a></td>
+            </tr>
+            <tr>
+              <td><a href="./disclaimers.html">Credits & Disclaimer</a></td>
+              <td><a href="certificates.html">My Certificates</a></td>
+            </tr>
+            <tr></tr>
+          </table>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <p>&copy;2025 Sheikh Hussain. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="javascript.js" defer></script>
+  </body>
+</html>
+

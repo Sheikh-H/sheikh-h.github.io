@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Trying out John the Ripper in a lab environment to learn how password cracking tools function and how to use them responsibly for security education."
+    />
+
+    <title>John The Ripper | Sheikh's Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Media/Images/Favicon/Sheikh_Favicon_1.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Doto:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div
+        class="header_logo"
+        id="header_logo_div"
+        onclick="location.href='./index.html'"
+      >
+        <img
+          src="./Media/Images/Logo/Sheikh_Logo_2.png"
+          alt="Sheikh Hussain's Portfolio Logo"
+        />
+        <h2>Sheikh Hussain</h2>
+      </div>
+      <div class="mobile_menu_button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="desktop-nav">
+        <nav>
+          <ul>
+            <li><a href="./index.html#home">Home</a></li>
+            <li><a href="./index.html#about">About Me</a></li>
+            <li><a href="./index.html#projects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <nav>
+        <div class="mobile_menu">
+          <ul>
+            <li><a href="./index.html#mhome">Home</a></li>
+            <li><a href="./index.html#mabout">About Me</a></li>
+            <li><a href="./index.html#mprojects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- ^ The above is the header, needs refactoring -->
+
+      <section>
+        <div class="pentesting_subject_home">
+          <h1>John The Ripper</h1>
+          <p>
+            John the Ripper is a password-cracking tool that attempts to recover
+            passwords by systematically trying entries from a dictionary or
+            precompiled list. This method is particularly effective against weak
+            or commonly used passwords. The tool often leverages large password
+            databases, including publicly available lists, to guide its
+            attempts.<br /><br />
+
+            Using John the Ripper highlights the importance of strong password
+            policies and secure storage practices. Modern tools like rainbow
+            tables store encrypted versions of passwords alongside their
+            plaintext equivalents, allowing testers to quickly determine if a
+            password can be derived from its hash. This demonstrates how easily
+            weak credentials can be compromised if proper safeguards are not in
+            place.<br /><br />
+
+            In penetration testing, John the Ripper is primarily employed during
+            the vulnerability assessment phase. It allows testers to evaluate
+            the strength of passwords in use, identify weak or reused
+            credentials, and provide actionable recommendations to improve
+            authentication security, such as enforcing complexity requirements
+            or implementing multi-factor authentication.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- The below is the footer v -->
+    <footer>
+      <div class="footer_top">
+        <div class="footer_identity">
+          <img
+            src="./Media/Images/Logo/Sheikh_Logo_4.png"
+            alt="Sheikh's Logo"
+            class="footer_logo"
+          />
+          <div class="footer_text">
+            <h3>Sheikh Hussain</h3>
+            <div class="social_icons">
+              <a
+                href="https://www.linkedin.com/in/sheikh-hussain/"
+                target="_blank"
+              >
+                <img
+                  src="./Media/Images/Icons/Sheikh's_LinkedIn_Profile.png"
+                  alt="Connect on LinkedIn Icon"
+                />
+              </a>
+              <a href="mailto:sheikh.hussain1155@gmail.com" target="_blank">
+                <img
+                  src="./Media/Images/Icons/Send_A_Message_To_Sheikh.png"
+                  alt="Message Sheikh Icon"
+                />
+              </a>
+              <a href="https://github.com/Sheikh-H" target="_blank">
+                <img
+                  src="./Media/Images/Icons/github-white-icon.png"
+                  alt="View GitHub Profile Icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div>
+          <table class="sitemap-table">
+            <tr>
+              <td>
+                <p class="sitemap-heading"><strong>Site Map</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="./website_builds.html">Website Builds</a></td>
+
+              <td><a href="index.html#home">Home</a></td>
+            </tr>
+            <tr>
+              <td><a href="./cybersecurity.html">Cybersecurity</a></td>
+
+              <td><a href="index.html#about">About</a></td>
+            </tr>
+            <tr>
+              <td><a href="./database_builds.html">Database Builds</a></td>
+
+              <td><a href="index.html#projects">Projects</a></td>
+            </tr>
+            <tr>
+              <td><a href="./python_projects.html">Python Projects</a></td>
+
+              <td><a href="index.html#contact">Contact Me</a></td>
+            </tr>
+            <tr>
+              <td><a href="./disclaimers.html">Credits & Disclaimer</a></td>
+              <td><a href="certificates.html">My Certificates</a></td>
+            </tr>
+            <tr></tr>
+          </table>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <p>&copy;2025 Sheikh Hussain. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="javascript.js" defer></script>
+  </body>
+</html>
+

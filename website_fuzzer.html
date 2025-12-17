@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Exploring the concept of website fuzzing — experimenting with input testing tools and learning how they help detect security weaknesses."
+    />
+
+    <title>Website Fuzzer | Sheikh's Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Media/Images/Favicon/Sheikh_Favicon_1.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Doto:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div
+        class="header_logo"
+        id="header_logo_div"
+        onclick="location.href='./index.html'"
+      >
+        <img
+          src="./Media/Images/Logo/Sheikh_Logo_2.png"
+          alt="Sheikh Hussain's Portfolio Logo"
+        />
+        <h2>Sheikh Hussain</h2>
+      </div>
+      <div class="mobile_menu_button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="desktop-nav">
+        <nav>
+          <ul>
+            <li><a href="./index.html#home">Home</a></li>
+            <li><a href="./index.html#about">About Me</a></li>
+            <li><a href="./index.html#projects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <nav>
+        <div class="mobile_menu">
+          <ul>
+            <li><a href="./index.html#mhome">Home</a></li>
+            <li><a href="./index.html#mabout">About Me</a></li>
+            <li><a href="./index.html#mprojects">Projects</a></li>
+            <li><a href="./index.html#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- ^ The above is the header, needs refactoring -->
+
+      <section>
+        <div class="pentesting_subject_home">
+          <h1>Website Fuzzing</h1>
+          <p>
+            Website fuzzers operate the same functions as Directory Busters, but
+            are performed on a website or application. These allow you to find
+            any anomalies that could suggest hidden parameters, functionality,
+            or improper input handling.<br /><br />
+
+            A better explanation of this would be to think of having implemented
+            a form on your website, which is usually secure. With the correct
+            inputs, it could bring back results that contain information
+            regarding the backend of your server, which then would pose a
+            security flaw, as a hacker could now sit and potentially find
+            various ways of entry into your system.<br /><br />
+
+            You’ll usually use this tool during the vulnerability assessments
+            and scanning phases, as this is all to do with collecting
+            information and resources. This also highlights a topic renowned as
+            injection attacks.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- The below is the footer v -->
+    <footer>
+      <div class="footer_top">
+        <div class="footer_identity">
+          <img
+            src="./Media/Images/Logo/Sheikh_Logo_4.png"
+            alt="Sheikh's Logo"
+            class="footer_logo"
+          />
+          <div class="footer_text">
+            <h3>Sheikh Hussain</h3>
+            <div class="social_icons">
+              <a
+                href="https://www.linkedin.com/in/sheikh-hussain/"
+                target="_blank"
+              >
+                <img
+                  src="./Media/Images/Icons/Sheikh's_LinkedIn_Profile.png"
+                  alt="Connect on LinkedIn Icon"
+                />
+              </a>
+              <a href="mailto:sheikh.hussain1155@gmail.com" target="_blank">
+                <img
+                  src="./Media/Images/Icons/Send_A_Message_To_Sheikh.png"
+                  alt="Message Sheikh Icon"
+                />
+              </a>
+              <a href="https://github.com/Sheikh-H" target="_blank">
+                <img
+                  src="./Media/Images/Icons/github-white-icon.png"
+                  alt="View GitHub Profile Icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div>
+          <table class="sitemap-table">
+            <tr>
+              <td>
+                <p class="sitemap-heading"><strong>Site Map</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="./website_builds.html">Website Builds</a></td>
+
+              <td><a href="index.html#home">Home</a></td>
+            </tr>
+            <tr>
+              <td><a href="./cybersecurity.html">Cybersecurity</a></td>
+
+              <td><a href="index.html#about">About</a></td>
+            </tr>
+            <tr>
+              <td><a href="./database_builds.html">Database Builds</a></td>
+
+              <td><a href="index.html#projects">Projects</a></td>
+            </tr>
+            <tr>
+              <td><a href="./python_projects.html">Python Projects</a></td>
+
+              <td><a href="index.html#contact">Contact Me</a></td>
+            </tr>
+            <tr>
+              <td><a href="./disclaimers.html">Credits & Disclaimer</a></td>
+              <td><a href="certificates.html">My Certificates</a></td>
+            </tr>
+            <tr></tr>
+          </table>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <p>&copy;2025 Sheikh Hussain. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="javascript.js" defer></script>
+  </body>
+</html>
+
