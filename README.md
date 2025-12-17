@@ -51,7 +51,7 @@ This portfolio is a live reflection of how I combine creativity, technical learn
 To view the project locally:
 
 ```bash
-git clone https://github.com/Sheikh-H/My-Portfolio.git
+git clone https://github.com/Sheikh-H/sheikh-h.github.io.git
 cd My-Portfolio
 ```
 ---
